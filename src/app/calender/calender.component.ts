@@ -14,7 +14,10 @@ export class CalenderComponent implements OnInit {
   constructor(private calenderService: CalenderService) { }
 
   ngOnInit() {
-    this.calenderItems = this.calenderService.getItems();
+    this.calenderService.getItems()
+      .subscribe(items => {
+        this.calenderItems = items;
+      });
   }
 
 }
