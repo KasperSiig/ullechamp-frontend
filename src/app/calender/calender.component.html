@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 fxFlexFill="100"
+      fxLayoutAlign="center">
+    InHouse Kalender</h1>
+  <div fxLayout="column"
+    fxLayoutGap="10px">
+    <div *ngFor="let calenderItem of calenderItems" fxLayoutAlign="center">
+      <mat-card fxLayoutAlign="center"  fxFlex="80%">
+        <mat-card-content>
+          {{ calenderItem.date }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
