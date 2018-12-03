@@ -13,6 +13,6 @@ export class CalenderService {
   constructor(private http: HttpClient) { }
 
   getItems(): Observable<CalenderItem[]> {
-    return this.http.get<CalenderItem[]>(environment.apiUrl + 'api/calenderitems/');
+    return this.http.get<CalenderItem[]>(environment.apiUrl + 'calenderitems/');
   }
 }
