@@ -1,0 +1,9 @@
+.container {
+  height: 100vh;
+
+}
+
+.welcome img{
+  height: 500px;
+  width: 100%;
+}

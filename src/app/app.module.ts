@@ -8,11 +8,13 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalenderComponent
+    CalenderComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
