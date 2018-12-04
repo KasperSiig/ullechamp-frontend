@@ -6,14 +6,17 @@ import { AppComponent } from './app.component';
 import { CalenderComponent } from './calender/calender.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule, MatToolbarModule} from '@angular/material';
+import {MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { MainNavComponent } from './shared/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalenderComponent,
-    NavbarComponent
+    NavbarComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,12 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    LayoutModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
