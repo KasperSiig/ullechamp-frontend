@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalenderComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
