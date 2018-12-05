@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer
+               class="sidenav"
+               fixedInViewport="false"
+      [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>
+      <img class="imgLogo" src="assets/imgs/logo.png" alt="UlleChampLogo">
+    </mat-toolbar>
+    <br>
+    <mat-nav-list>
+        <a mat-list-item href="#" class="navBtn">Login med Twitch</a>
+        <a mat-list-item href="#" class="navBtn">Hjem</a>
+        <a mat-list-item href="#" class="navBtn" >InHouse</a>
+        <a mat-list-item href="#" class="navBtn">Kalender</a>
+        <a mat-list-item href="#" class="navBtn">Tilmelding</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span class="title">InHouse 5v5</span>
+      <span class="spacer"></span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
