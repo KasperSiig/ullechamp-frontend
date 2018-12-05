@@ -13,7 +13,7 @@
         <a mat-list-item href="#" class="navBtn">Login med Twitch</a>
         <a mat-list-item href="#" class="navBtn">Hjem</a>
         <a mat-list-item href="#" class="navBtn" >InHouse</a>
-        <a mat-list-item href="#" class="navBtn">Kalender</a>
+        <a mat-list-item href="#" routerLink="/calender" class="navBtn">Kalender</a>
         <a mat-list-item href="#" class="navBtn">Tilmelding</a>
 
     </mat-nav-list>
@@ -26,7 +26,7 @@
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon" class="hamburger">menu</mat-icon>
       </button>
       <span class="spacer"></span>
       <span class="title">InHouse 5v5</span>
