@@ -10,6 +10,9 @@ import {MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatI
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import {HttpClientModule} from '@angular/common/http';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     CalenderComponent,
     NavbarComponent,
     MainNavComponent
+    WelcomeComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSidenavModule,
     MatIconModule,
     MatListModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
