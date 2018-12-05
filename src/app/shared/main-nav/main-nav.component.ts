@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class MainNavComponent {
 
+  inhouseActive = false;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
@@ -17,4 +19,7 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  toggleInHouse() {
+    this.inhouseActive = !this.inhouseActive;
+  }
 }

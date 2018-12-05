@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://ullechamp.kaspersiig.me/api/'
+  apiUrl: 'https://ullechamp.azurewebsites.net/'
 };
