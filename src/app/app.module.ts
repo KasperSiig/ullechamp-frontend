@@ -19,7 +19,7 @@ import { RulesComponent } from './rules/rules.component';
     AppComponent,
     CalenderComponent,
     NavbarComponent,
-    MainNavComponent
+    MainNavComponent,
     WelcomeComponent,
     RulesComponent
   ],
@@ -34,7 +34,7 @@ import { RulesComponent } from './rules/rules.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
     HttpClientModule
   ],
   providers: [],

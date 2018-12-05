@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import 'twitch-embed';
 
 @Component({
   selector: 'app-welcome',
