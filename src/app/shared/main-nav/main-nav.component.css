@@ -1,27 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Unlock');
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
   width: 200px;
-  background: rgba(34,29,54, 0.95);
-  border-color: #221d36;
+  background: #283044;
+  position: absolute;
+  box-shadow: 0px 0px 1px #000;
 }
 
 .mat-toolbar {
-  background: #221d36;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
+  background: #9B2915;
+  position: absolute;
+  height: 78px;
+  box-shadow: 0px 0px 1px #000;
   z-index: 1;
 }
 
 .navBtn {
-  color: #ffffff95;
+  color: #ffffffcf;
   font-size: 18px;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: 'Raleway', sans-serif;
+  background-color: transparent;
+  border: transparent;
 }
 
 .spacer {
@@ -33,22 +36,29 @@
 }
 
 .navBtn:hover{
-  color: #e0d9ec;
+  color: #dfdced;
+  background: #574c88;
 }
 
 .title {
-  color: #ffffff95;
-  font-size: 30px;
-  font-family: Helvetica Neue, sans-serif;
+  color: #dfdfdf;
+  font-size: 45px;
+  font-family: 'Unlock', cursive;
+  text-shadow: 1px 1px 1px #000;
 }
 
 .imgLogo {
   width: 50px;
   height: 50px;
-  opacity: 0.7;
+  opacity: 1;
   margin: auto auto;
+  margin-top: 10px;
 }
 
 .hamburger {
   color: #ffffff95;
+}
+
+.chevron_right {
+  font-size: 25px;
 }
