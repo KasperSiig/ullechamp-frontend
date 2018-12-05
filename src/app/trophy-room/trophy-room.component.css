@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
+.imgRanks {
+  width: 40px;
+  height: 40px;
+  flex: 1 auto;
+}
+
+.userRank {
+  font-size: 28px;
+  font-family: 'Oxygen', sans-serif;
+  flex: 1 auto;
+}
+
+.spacer {
+  flex: 1 auto;
+}
+
+.mat-card-content {
+  height: auto;
+  margin: 0;
+}
+
+.userPoint {
+  font-size: 28px;
+  font-family: 'Oxygen', sans-serif;
+  margin: 0 auto;
+
+}

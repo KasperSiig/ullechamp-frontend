@@ -21,6 +21,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RulesComponent } from './rules/rules.component';
+import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RulesComponent } from './rules/rules.component';
     NavbarComponent,
     MainNavComponent,
     WelcomeComponent,
-    RulesComponent
+    RulesComponent,
+    TrophyRoomComponent
   ],
   imports: [
     BrowserModule,
