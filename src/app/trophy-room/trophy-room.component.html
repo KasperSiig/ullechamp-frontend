@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 fxFlexFill="100"
+      fxLayoutAlign="center">
+    Pokal Listen</h1>
+  <h3 fxFlexFill="100"
+      fxLayoutAlign="center">
+    Tidligere sæsoner</h3>
+    <div>
+      <h3 fxFlexFill="100"
+        fxLayoutAlign="center">
+          Sæson 1 (2017-2018)</h3>
+      <div fxLayout="column"
+           fxLayoutGap="10px">
+        <div *ngFor="let user of users" fxLayoutAlign="center">
+          <mat-card fxLayoutAlign="center" fxFlex="40%">
+            <mat-card-content>
+              <img class="imgRanks"
+                src="assets/imgs/rank1.png"
+                alt="UlleChampRanks">
+            </mat-card-content>
+            <span class="spacer"></span>
+            <mat-card-content class="userRank">
+              {{user.rank}}. {{user.username}}
+            </mat-card-content>
+            <mat-card-content class="userPoint">
+              {{user.point}} Points
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+</div>
