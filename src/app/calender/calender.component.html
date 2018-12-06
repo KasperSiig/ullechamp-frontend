@@ -7,7 +7,7 @@
     <div *ngFor="let calenderItem of calenderItems" fxLayoutAlign="center">
       <mat-card fxLayoutAlign="center"  fxFlex="80%">
         <mat-card-content>
-          {{ calenderItem.nextEvent }}
+          {{ calenderItem.nextEvent | date }}
         </mat-card-content>
       </mat-card>
     </div>

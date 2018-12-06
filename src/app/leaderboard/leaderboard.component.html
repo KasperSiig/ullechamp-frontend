@@ -1,0 +1,47 @@
+<div fxLayoutAlign="center">
+  <div class="container" fxLayout="row" fxFlex="90%">
+    <div fxLayout="column" fxFlex="20%">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <mat-form-field class="input">
+          <input matInput type="text" placeholder="Søg..." class="input" formControlName="search">
+        </mat-form-field>
+      </form>
+      <mat-form-field>
+        <mat-select placeholder="Vælg Sortering" class="input">
+          <mat-option
+            *ngFor="let opt of options"
+            [value]="opt">{{ opt }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <span class="spacer"></span>
+    <div
+      fxFlex="78%"
+      class="cards"
+      fxLayout="column"
+      fxLayoutGap="10px">
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="1 === 0" *ngFor="let user of users">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              #{{ user.rank }}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ user.username}}
+            </mat-panel-description>
+            <mat-panel-description>
+              KDA {{ user.kda }}
+            </mat-panel-description>
+            <mat-panel-description>
+              {{ user.winLoss }}% W/L
+            </mat-panel-description>
+            <mat-panel-description>
+              {{ user.point }}P
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

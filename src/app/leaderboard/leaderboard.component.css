@@ -1,0 +1,32 @@
+.options {
+  position: relative;
+  top: 50px;
+}
+
+.spacer {
+  flex: 1 auto;
+}
+
+.container {
+  position: relative;
+  top: 20px;
+}
+
+.input {
+  width: 100%;
+}
+
+.cards {
+  position: relative;
+  top: -2px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
