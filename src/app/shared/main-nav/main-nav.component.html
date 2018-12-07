@@ -16,10 +16,10 @@
       <a mat-list-item class="navBtn">Login med Twitch</a>
       <hr>
       <a mat-list-item routerLink="/" class="navBtn">Hjem</a>
-
       <a mat-list-item class="navBtn" (click)="toggleInHouse()">InHouse
         <span class="spacer"></span>
-        <mat-icon>expand_more</mat-icon></a>
+        <mat-icon>expand_more</mat-icon>
+      </a>
       <span *ngIf="inhouseActive">
         <a
           mat-list-item
@@ -27,9 +27,9 @@
           routerLink="/rules">
           <mat-icon class="chevron_right">chevron_right</mat-icon>Regler</a>
         <a
-        mat-list-item
-        class="navBtn dropdown"
-        routerLink="/trophy-room">
+          mat-list-item
+          class="navBtn dropdown"
+          routerLink="/trophy-room">
           <mat-icon class="chevron_right">chevron_right</mat-icon>Pokal Liste</a>
         <a
           mat-list-item
