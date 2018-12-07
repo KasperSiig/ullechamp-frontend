@@ -13,7 +13,7 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatMenuModule
+  MatMenuModule, MatSelectModule, MatInputModule, MatTableModule, MatExpansionModule
 } from '@angular/material';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
@@ -22,6 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RulesComponent } from './rules/rules.component';
 import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
     MainNavComponent,
     WelcomeComponent,
     RulesComponent,
-    TrophyRoomComponent
+    TrophyRoomComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,12 @@ import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTableModule,
+    MatExpansionModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

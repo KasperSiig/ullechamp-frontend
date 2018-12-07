@@ -9,7 +9,8 @@
       fxLayoutAlign="center"
       class="imgLogo"
       src="assets/imgs/logo.png"
-      alt="UlleChampLogo">
+      alt="UlleChampLogo"
+      routerLink="/">
     <mat-nav-list>
       <hr>
       <a mat-list-item class="navBtn">Login med Twitch</a>
@@ -26,10 +27,15 @@
           routerLink="/rules">
           <mat-icon class="chevron_right">chevron_right</mat-icon>Regler</a>
         <a
+        mat-list-item
+        class="navBtn dropdown"
+        routerLink="/trophy-room">
+          <mat-icon class="chevron_right">chevron_right</mat-icon>Pokal Liste</a>
+        <a
           mat-list-item
           class="navBtn dropdown"
-          routerLink="/trophy-room">
-          <mat-icon class="chevron_right">chevron_right</mat-icon>Pokal Listen</a>
+          routerLink="/leaderboard">
+          <mat-icon class="chevron_right">chevron_right</mat-icon>Rang Liste</a>
       </span>
       <a mat-list-item routerLink="/calender" class="navBtn">Kalender</a>
       <a mat-list-item class="navBtn">Tilmelding</a>
