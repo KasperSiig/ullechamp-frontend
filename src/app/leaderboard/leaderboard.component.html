@@ -1,5 +1,8 @@
 <div fxLayoutAlign="center">
-  <div class="container" fxLayout="row" fxFlex="90%">
+  <div
+    class="container"
+    fxLayout="row"
+    fxFlex="90%">
     <div fxLayout="column" fxFlex="20%">
       <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <mat-form-field class="input">
@@ -49,24 +52,24 @@
                    src="assets/imgs/userPic.png"
                    alt="UserPic">
               Bwbz MissTizz
-              </p>
+            </p>
             <p fxLayout="column"
                fxLayoutAlign="center center">
               <img class="imgUserRank"
                    src="assets/imgs/rank1.png"
                    alt="UserRank">
               Challenger
-            <br>
-            Ranked Solo</p>
+              <br>
+              Ranked Solo</p>
 
             <p>Wins: {{ user.wins }}
               <br>
               <br>
-            Loss: {{ user.losses }}</p>
+              Loss: {{ user.losses }}</p>
             <p>Kills: {{ user.kills }}
               <br>
               <br>
-            Deaths: {{ user.deaths }}</p>
+              Deaths: {{ user.deaths }}</p>
             <p>Assists: {{ user.assists }}
               <br>
               <br>
