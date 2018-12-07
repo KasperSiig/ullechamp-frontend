@@ -15,7 +15,6 @@ import {
   MatListModule,
   MatMenuModule, MatSelectModule, MatInputModule, MatTableModule, MatExpansionModule
 } from '@angular/material';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
@@ -29,7 +28,6 @@ import {ReactiveFormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     CalenderComponent,
-    NavbarComponent,
     MainNavComponent,
     WelcomeComponent,
     RulesComponent,
