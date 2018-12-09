@@ -41,3 +41,14 @@
   height: 70px;
   border-radius: 10000px;
 }
+
+.selected {
+  background-color: #008dd7;
+  color: #FFF;
+  position: relative;
+  left: 5px;
+}
+
+cdk-virtual-scroll-viewport {
+  height: 85vh;
+}
