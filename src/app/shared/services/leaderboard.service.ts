@@ -15,8 +15,8 @@ export class LeaderboardService {
     return this.http.get<User[]>(environment.apiUrl + 'leaderboard/');
   }
 
-  search(search: string): Observable<User[]> {
+  search(search: string, curPage: string, itemsPrPage: string): Observable<User[]> {
     return this.http.get<User[]>(environment.apiUrl + 'leaderboard/search?search='
-      + search);
+      + search + '&currentpage=' + curPage + '&itemsprpage=' + itemsPrPage);
   }
 }

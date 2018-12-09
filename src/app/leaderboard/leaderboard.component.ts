@@ -53,7 +53,7 @@ export class LeaderboardComponent implements OnInit {
   }
 
   onSearch() {
-    this.leaderboardService.search(this.searchForm.get('search').value)
+    this.leaderboardService.search(this.searchForm.get('search').value, '1', '10')
       .subscribe(users => {
         this.users = users;
       });

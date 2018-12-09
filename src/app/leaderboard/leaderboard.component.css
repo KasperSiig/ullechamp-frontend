@@ -52,3 +52,7 @@
 cdk-virtual-scroll-viewport {
   height: 85vh;
 }
+
+form  mat-card {
+  margin-bottom: 5px;
+}

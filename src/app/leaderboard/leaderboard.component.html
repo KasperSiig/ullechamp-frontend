@@ -13,14 +13,14 @@
           <input matInput type="text" placeholder="Søg..." class="input" formControlName="search">
         </mat-form-field>
         <span *ngIf="!(isHandset$ | async)">
-        <mat-card
-          *ngFor="let opt of options"
-          [ngClass]="selected === options.indexOf(opt) ? 'selected' : ''"
-          (click)="selected = options.indexOf(opt)">
-          <mat-card-content>
-            {{ opt }}
-          </mat-card-content>
-        </mat-card>
+          <mat-card
+            *ngFor="let opt of options"
+            [ngClass]="selected === options.indexOf(opt) ? 'selected' : ''"
+            (click)="selected = options.indexOf(opt)">
+            <mat-card-content>
+              {{ opt }}
+            </mat-card-content>
+          </mat-card>
         </span>
         <span
           *ngIf="(isHandset$ | async)">
