@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CalenderComponent } from './calender/calender.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CalenderComponent} from './calender/calender.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatCardModule,
   MatToolbarModule,
@@ -15,14 +15,17 @@ import {
   MatListModule,
   MatMenuModule, MatSelectModule, MatInputModule, MatTableModule, MatExpansionModule
 } from '@angular/material';
-import { MainNavComponent } from './shared/main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import {MainNavComponent} from './shared/main-nav/main-nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { RulesComponent } from './rules/rules.component';
-import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import {WelcomeComponent} from './welcome/welcome.component';
+import {RulesComponent} from './rules/rules.component';
+import {TrophyRoomComponent} from './trophy-room/trophy-room.component';
+import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatchHistoryComponent } from './match-history/match-history.component';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     WelcomeComponent,
     RulesComponent,
     TrophyRoomComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatTableModule,
     MatExpansionModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
