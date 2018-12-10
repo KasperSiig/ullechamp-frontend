@@ -1,83 +1,103 @@
 <div fxLayoutAlign="center">
   <div
     class="container"
-    fxLayout="row"
+    fxLayout="row wrap"
     fxFlex="90%">
-    <div fxLayout="column" fxFlex="20%">
+    <div
+      fxLayout="column"
+      fxFlex="20%"
+      fxFlex.lt-md="100%"
+      fxLayoutGap="10px">
       <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <mat-form-field class="input">
           <input matInput type="text" placeholder="Søg..." class="input" formControlName="search">
         </mat-form-field>
-      </form>
-      <mat-form-field>
-        <mat-select placeholder="Vælg Sortering" class="input">
-          <mat-option
+        <span *ngIf="!(isHandset$ | async)">
+          <mat-card
             *ngFor="let opt of options"
-            [value]="opt">{{ opt }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+            [ngClass]="selected === options.indexOf(opt) ? 'selected' : ''"
+            (click)="selected = options.indexOf(opt)">
+            <mat-card-content>
+              {{ opt }}
+            </mat-card-content>
+          </mat-card>
+        </span>
+        <span
+          *ngIf="(isHandset$ | async)">
+          <mat-form-field>
+            <mat-select placeholder="Vælg Sortering" class="input" fxFlex.lt-md="100%">
+              <mat-option
+               *ngFor="let opt of options"
+                [value]="opt">{{ opt }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </span>
+      </form>
     </div>
     <span class="spacer"></span>
     <div
       fxFlex="78%"
+      fxFlex.lt-md="100%"
       class="cards"
       fxLayout="column"
       fxLayoutGap="10px">
       <mat-accordion class="example-headers-align">
-        <mat-expansion-panel [expanded]="1 === 0" *ngFor="let user of users">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              #{{ user.rank }}
-            </mat-panel-title>
-            <mat-panel-description>
-              {{ user.username}}
-            </mat-panel-description>
-            <mat-panel-description>
-              KDA {{ user.kda }}
-            </mat-panel-description>
-            <mat-panel-description>
-              {{ user.winLoss }}% W/L
-            </mat-panel-description>
-            <mat-panel-description>
-              {{ user.point }}P
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <mat-panel-description class="panelContent">
-            <p fxLayout="column"
-               fxLayoutAlign="center center">
-              <img fxLayout="column"
-                   fxLayoutAlign="center center"
-                   class="imgUserPic"
-                   src="assets/imgs/userPic.png"
-                   alt="UserPic">
-              Bwbz MissTizz
-            </p>
-            <p fxLayout="column"
-               fxLayoutAlign="center center">
-              <img class="imgUserRank"
-                   src="assets/imgs/rank1.png"
-                   alt="UserRank">
-              Challenger
-              <br>
-              Ranked Solo</p>
+        <cdk-virtual-scroll-viewport itemSize="10">
+          <mat-expansion-panel [expanded]="1 === 0" *cdkVirtualFor="let user of users">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                #{{ user.rank }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ user.username}}
+              </mat-panel-description>
+              <mat-panel-description>
+                KDA {{ user.kda }}
+              </mat-panel-description>
+              <mat-panel-description>
+                {{ user.winLoss }}% W/L
+              </mat-panel-description>
+              <mat-panel-description>
+                {{ user.point }}P
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-panel-description class="panelContent">
+              <p fxLayout="column"
+                 fxLayoutAlign="center center">
+                <img fxLayout="column"
+                     fxLayoutAlign="center center"
+                     class="imgUserPic"
+                     src="assets/imgs/userPic.png"
+                     alt="UserPic">
+                Bwbz MissTizz
+              </p>
+              <p fxLayout="column"
+                 fxLayoutAlign="center center">
+                <img class="imgUserRank"
+                     src="assets/imgs/rank1.png"
+                     alt="UserRank">
+                Challenger
+                <br>
+                Ranked Solo</p>
 
-            <p>Wins: {{ user.wins }}
-              <br>
-              <br>
-              Loss: {{ user.losses }}</p>
-            <p>Kills: {{ user.kills }}
-              <br>
-              <br>
-              Deaths: {{ user.deaths }}</p>
-            <p>Assists: {{ user.assists }}
-              <br>
-              <br>
-              <br></p>
-            <p></p>
-            <p></p>
-          </mat-panel-description>
-        </mat-expansion-panel>
+              <p>Wins: {{ user.wins }}
+                <br>
+                <br>
+                Loss: {{ user.losses }}</p>
+              <p>Kills: {{ user.kills }}
+                <br>
+                <br>
+                Deaths: {{ user.deaths }}</p>
+              <p>Assists: {{ user.assists }}
+                <br>
+                <br>
+                <br></p>
+              <p></p>
+              <p></p>
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </cdk-virtual-scroll-viewport>
       </mat-accordion>
     </div>
   </div>

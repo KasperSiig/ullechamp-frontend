@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/models/User';
 import {LeaderboardService} from '../shared/services/leaderboard.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {map, window} from 'rxjs/operators';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-leaderboard',
@@ -9,6 +12,15 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent implements OnInit {
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  windowHeight: number;
+
+  selected = 0;
 
   searchForm = new FormGroup({
     search: new FormControl('')
@@ -28,17 +40,20 @@ export class LeaderboardComponent implements OnInit {
     'Rank'
   ];
 
-  constructor(private leaderboardService: LeaderboardService) { }
+  constructor(private leaderboardService: LeaderboardService,
+              private breakpointObserver: BreakpointObserver) {
+  }
 
   ngOnInit() {
     this.leaderboardService.getUsers()
       .subscribe(users => {
         this.users = users;
-    });
+        this.users.reverse();
+      });
   }
 
   onSearch() {
-    this.leaderboardService.search(this.searchForm.get('search').value, '1', '2')
+    this.leaderboardService.search(this.searchForm.get('search').value, '1', '10')
       .subscribe(users => {
         this.users = users;
       });
