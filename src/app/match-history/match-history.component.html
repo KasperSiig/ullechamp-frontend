@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 fxFlexFill="80"
+      fxLayoutAlign="center">
+    Tidligere matches</h1>
+  <slideshow fxFlexFill="80"
+             fxLayoutAlign="center"
+
+             [height]="height"
+             [minHeight]="'490px'"
+             [autoPlay]="true"
+             [autoPlayInterval]="8888"
+             [stopAutoPlayOnSlide]="false"
+             [showArrows]="true"
+             [imageUrls]="imageSources"
+             [lazyLoad]="imageSources?.length > 1"
+             [autoPlayWaitForLazyLoad]="true"
+             [showDots]="true"
+             [dotColor]="'#000000'">
+
+  </slideshow>
+</div>

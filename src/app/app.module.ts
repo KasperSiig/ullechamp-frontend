@@ -24,6 +24,8 @@ import {TrophyRoomComponent} from './trophy-room/trophy-room.component';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatchHistoryComponent } from './match-history/match-history.component';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     WelcomeComponent,
     RulesComponent,
     TrophyRoomComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatTableModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]
