@@ -23,6 +23,8 @@ import { RulesComponent } from './rules/rules.component';
 import { TrophyRoomComponent } from './trophy-room/trophy-room.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { MatchHistoryComponent } from './match-history/match-history.component';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     WelcomeComponent,
     RulesComponent,
     TrophyRoomComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatTableModule,
     MatExpansionModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]
