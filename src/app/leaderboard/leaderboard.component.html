@@ -53,7 +53,7 @@
                 #{{ user.rank }}
               </mat-panel-title>
               <mat-panel-description>
-                {{ user.username}}
+                {{ user.twitchname}}
               </mat-panel-description>
               <mat-panel-description>
                 KDA {{ user.kda }}
@@ -71,7 +71,7 @@
                 <img fxLayout="column"
                      fxLayoutAlign="center center"
                      class="imgUserPic"
-                     src="assets/imgs/userPic.png"
+                     src="{{ user.imageUrl }}"
                      alt="UserPic">
                 Bwbz MissTizz
               </p>
