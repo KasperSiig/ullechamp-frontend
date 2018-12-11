@@ -19,4 +19,9 @@ export class LeaderboardService {
     return this.http.get<User[]>(environment.apiUrl + 'leaderboard/search?search='
       + search + '&currentpage=' + curPage + '&itemsprpage=' + itemsPrPage);
   }
+
+  sort(curPage: string, itemsPrPage: string, sorting: string): Observable<User[]> {
+    return this.http.get<User[]>(environment.apiUrl + 'leaderboard/stats?curPage=' + curPage
+      + '&itemsPrPage=' + itemsPrPage + '&sorting=' + sorting);
+  }
 }

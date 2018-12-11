@@ -16,7 +16,8 @@
           <mat-card
             *ngFor="let opt of options"
             [ngClass]="selected === options.indexOf(opt) ? 'selected' : ''"
-            (click)="selected = options.indexOf(opt)">
+            (click)="selected = options.indexOf(opt)"
+            (click)="onSort()">
             <mat-card-content>
               {{ opt }}
             </mat-card-content>
@@ -27,8 +28,10 @@
           <mat-form-field>
             <mat-select placeholder="Vælg Sortering" class="input" fxFlex.lt-md="100%">
               <mat-option
-               *ngFor="let opt of options"
-                [value]="opt">{{ opt }}
+                *ngFor="let opt of options"
+                [value]="options.indexOf(opt)"
+                (click)="selected = options.indexOf(opt)"
+                (click)="onSort()">{{ opt }}
               </mat-option>
             </mat-select>
           </mat-form-field>
