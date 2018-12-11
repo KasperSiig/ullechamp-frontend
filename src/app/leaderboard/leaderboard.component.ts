@@ -36,8 +36,7 @@ export class LeaderboardComponent implements OnInit {
     'Assists',
     'KDA',
     'Win/Loss',
-    'Points',
-    'Rank'
+    'Points'
   ];
 
   constructor(private leaderboardService: LeaderboardService,
