@@ -48,12 +48,18 @@ export class LeaderboardComponent implements OnInit {
     this.leaderboardService.getUsers()
       .subscribe(users => {
         this.users = users;
-        this.users.reverse();
       });
   }
 
   onSearch() {
     this.leaderboardService.search(this.searchForm.get('search').value, '1', '10')
+      .subscribe(users => {
+        this.users = users;
+      });
+  }
+
+  onSort() {
+    this.leaderboardService.sort('1', '10', this.options[this.selected])
       .subscribe(users => {
         this.users = users;
       });
