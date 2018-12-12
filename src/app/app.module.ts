@@ -17,15 +17,16 @@ import {
 } from '@angular/material';
 import {MainNavComponent} from './shared/main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {RulesComponent} from './rules/rules.component';
 import {TrophyRoomComponent} from './trophy-room/trophy-room.component';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { MatchHistoryComponent } from './match-history/match-history.component';
+import {MatchHistoryComponent} from './match-history/match-history.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
+import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,11 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     ScrollingModule,
     SlideshowModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
