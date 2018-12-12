@@ -1,6 +1,9 @@
 export class User {
   id: number;
-  username: string;
+  twitchId: number;
+  twitchname: string;
+  lolname: string;
+  imageUrl: string;
   role: string;
   wins: number;
   losses: number;
