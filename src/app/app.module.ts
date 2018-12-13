@@ -27,6 +27,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
+import { TournamentComponent } from './tournament/tournament.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
     RulesComponent,
     TrophyRoomComponent,
     LeaderboardComponent,
-    MatchHistoryComponent
+    MatchHistoryComponent,
+    TournamentComponent
   ],
   imports: [
     BrowserModule,
