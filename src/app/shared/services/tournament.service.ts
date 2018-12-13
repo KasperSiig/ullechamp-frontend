@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../models/User';
 import {environment} from '../../../environments/environment';
@@ -27,6 +27,6 @@ export class TournamentService {
   }
 
   assignTeams(dto: UserTournamentDTO): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'tournament/current', (dto));
+    return this.http.post<any>(environment.apiUrl + 'tournament/current', {user: dto.user, team: dto.team});
   }
 }
