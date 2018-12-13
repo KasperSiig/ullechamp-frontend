@@ -28,6 +28,7 @@ import {MatchHistoryComponent} from './match-history/match-history.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import { TournamentComponent } from './tournament/tournament.component';
+import { AdminTournamentComponent } from './admin-tournament/admin-tournament.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TournamentComponent } from './tournament/tournament.component';
     TrophyRoomComponent,
     LeaderboardComponent,
     MatchHistoryComponent,
-    TournamentComponent
+    TournamentComponent,
+    AdminTournamentComponent
   ],
   imports: [
     BrowserModule,

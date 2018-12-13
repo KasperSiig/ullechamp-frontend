@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 export class MainNavComponent {
 
   inhouseActive = false;
+  adminActive = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -21,5 +22,9 @@ export class MainNavComponent {
 
   toggleInHouse() {
     this.inhouseActive = !this.inhouseActive;
+  }
+
+  toggleAdmin() {
+    this.adminActive = !this.adminActive;
   }
 }
