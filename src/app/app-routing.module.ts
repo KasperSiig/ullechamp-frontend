@@ -6,6 +6,8 @@ import {RulesComponent} from './rules/rules.component';
 import {TrophyRoomComponent} from './trophy-room/trophy-room.component';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {MatchHistoryComponent} from './match-history/match-history.component';
+import {TournamentComponent} from './tournament/tournament.component';
+import {AdminTournamentComponent} from './admin-tournament/admin-tournament.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path: 'rules', component: RulesComponent},
   {path: 'trophy-room', component: TrophyRoomComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'match-history', component: MatchHistoryComponent}
+  {path: 'match-history', component: MatchHistoryComponent},
+  {path: 'tournament', component: TournamentComponent},
+  {path: 'admin-tournament', component: AdminTournamentComponent}
 ];
 
 @NgModule({

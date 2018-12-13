@@ -1,0 +1,94 @@
+<div fxLayoutAlign="center"
+     fxFlexFill="80"
+     class="container">
+  <span class="spacer"></span>
+  <a mat-button class="gameSignUp">
+    TILMELD INHOUSE
+  </a>
+  <span class="spacer"></span>
+</div>
+<br>
+
+
+<div fxLayout="row"
+     fxLayoutAlign="center">
+  <div fxLayout="column">
+    <div>
+      <br>
+      <a>Team Rød</a>
+      <mat-card class="nowPlaying"
+                fxFlexFill="80">
+        <mat-card-content>
+          <a>Rød 1</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Rød 2</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Rød 3</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Rød 4</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Rød 5</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <span fxFlex="5"></span>
+  <div fxLayout="column">
+    <div>
+      <br>
+      <a >Team Blå</a>
+      <mat-card class="nowPlaying"
+                fxFlexFill="80">
+        <mat-card-content>
+          <a>Blå 1</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Blå 2</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Blå 3</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Blå 4</a>
+        </mat-card-content>
+        <mat-card-content>
+          <a>Blå 5</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <span fxFlex="10%"></span>
+  <div fxLayout="column"
+       fxFlex="40%">
+    <mat-card fxLayoutAlign="center center"
+              class="cards"
+              *ngFor="let user of users">
+      <mat-card-title>
+        <a>1</a>
+      </mat-card-title>
+      <span fxFlex="2%"></span>
+      <mat-card-content
+        fxLayoutAlign="center center">
+        <img fxLayout="column"
+             fxLayoutAlign="center center"
+             class="imgUserPic"
+             src="{{ user.imageUrl }}"
+             alt="UserPic">
+      </mat-card-content>
+      <span class="spacer"></span>
+      <mat-card-content>
+        {{user.twitchname}}
+      </mat-card-content>
+      <span class="spacer"></span>
+      <mat-card-content>
+        {{user.point}} Points
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

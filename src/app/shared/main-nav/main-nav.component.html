@@ -52,9 +52,21 @@
           routerLink="/match-history">
           <mat-icon class="chevron_right">chevron_right</mat-icon>Match History</a>
       </span>
-      <a mat-list-item routerLink="/calender" class="navBtn">Kalender</a>
-      <a mat-list-item class="navBtn">Tilmelding</a>
 
+      <a mat-list-item routerLink="/calender" class="navBtn">Kalender</a>
+      <a mat-list-item class="navBtn" routerLink="/tournament">Tilmelding</a>
+
+      <a mat-list-item class="navBtn" (click)="toggleAdmin()">Admin
+        <span class="spacer"></span>
+        <mat-icon>expand_more</mat-icon>
+      </a>
+      <span *ngIf="adminActive">
+        <a
+          mat-list-item
+          class="navBtn dropdown"
+          routerLink="/admin-tournament">
+          <mat-icon class="chevron_right">chevron_right</mat-icon>Start Tournament</a>
+      </span>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
