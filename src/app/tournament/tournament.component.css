@@ -1,0 +1,42 @@
+.spacer {
+  flex: 1 auto;
+}
+
+.container {
+  position: relative;
+  top: 20px;
+}
+
+.gameSignUp {
+  flex: 1;
+  color: #ffffffcf;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  background: #283044;
+}
+
+.gameSignUp:hover {
+  color: #dfdced;
+  background: #8366b6;
+}
+
+.cards {
+  position: relative;
+  top: 20px;
+}
+
+.imgUserRank {
+  width: 50px;
+  height: 50px;
+}
+
+.imgUserPic {
+  width: 40px;
+  height: 40px;
+  border-radius: 1000px;
+}
+
+.nowPlaying .mat-card-content {
+  width: 150px;
+  height: 30px;
+}
