@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/models/User';
 import {LeaderboardService} from '../shared/services/leaderboard.service';
+import {TournamentService} from '../shared/services/tournament.service';
+import {UserTournamentDTO} from '../shared/models/dtos/UserTournamentDTO';
 
 @Component({
   selector: 'app-admin-tournament',
@@ -9,15 +11,34 @@ import {LeaderboardService} from '../shared/services/leaderboard.service';
 })
 export class AdminTournamentComponent implements OnInit {
 
-  users: User[];
+  queueUsers: User[];
+  currentUsers: UserTournamentDTO[];
 
-  constructor(private leaderboardService: LeaderboardService) { }
+  constructor(private tourmanentService: TournamentService) {
+  }
 
   ngOnInit() {
-    this.leaderboardService.getUsers()
+    this.tourmanentService.getQueue()
       .subscribe(users => {
-        this.users = users;
-        this.users.reverse();
+        this.queueUsers = users;
+        this.queueUsers.reverse();
       });
+
+    this.tourmanentService.getCurrent()
+      .subscribe(users => {
+        this.currentUsers = users;
+      });
+  }
+
+  filterUsersOfTeam(team: number) {
+    return this.currentUsers.filter(u => u.team === team);
+  }
+
+  assignUserToTeam(event: MouseEvent, userId: number) {
+
+    this.tourmanentService.assignTeams(<UserTournamentDTO>({
+      team: event.srcElement.getAttribute('team'),
+      user: this.queueUsers.filter(u => u.id === userId)
+    }));
   }
 }
