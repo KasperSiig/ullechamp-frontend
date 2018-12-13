@@ -1,7 +1,7 @@
 <div fxLayoutAlign="center"
      fxFlexFill="80"
      class="container">
-<br>
+  <br>
 </div>
 
 <div fxLayout="row"
@@ -12,20 +12,8 @@
       <a>Team Rød</a>
       <mat-card class="nowPlaying"
                 fxFlexFill="80">
-        <mat-card-content>
-          <a>Rød 1</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Rød 2</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Rød 3</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Rød 4</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Rød 5</a>
+        <mat-card-content *ngFor="let user of filterUsersOfTeam(0)">
+          {{user.user.twitchname}}
         </mat-card-content>
       </mat-card>
     </div>
@@ -34,23 +22,11 @@
   <div fxLayout="column">
     <div>
       <br>
-      <a >Team Blå</a>
+      <a>Team Blå</a>
       <mat-card class="nowPlaying"
                 fxFlexFill="80">
-        <mat-card-content>
-          <a>Blå 1</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Blå 2</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Blå 3</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Blå 4</a>
-        </mat-card-content>
-        <mat-card-content>
-          <a>Blå 5</a>
+        <mat-card-content *ngFor="let user of filterUsersOfTeam(1)">
+          {{user.user.twitchname}}
         </mat-card-content>
       </mat-card>
     </div>
@@ -82,9 +58,16 @@
       <mat-card-actions fxLayout="row"
                         fxLayoutGap="5px"
                         fxFlexAlign="end">
-        <a mat-button class="btnRedTeam">Rødt Team</a>
-        <a mat-button class="btnBlueTeam">Blåt Team</a>
+        <a mat-button
+           (click)="assignUserToTeam($event, user.user.id)"
+           team="0"
+           class="btnRedTeam">Rødt Team</a>
+        <a mat-button
+           (click)="assignUserToTeam($event, user.user.id)"
+           team="1"
+           class="btnBlueTeam">Blåt Team</a>
       </mat-card-actions>
     </mat-card>
+
   </div>
 </div>
