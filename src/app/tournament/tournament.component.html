@@ -2,7 +2,8 @@
      fxFlexFill="80"
      class="container">
   <span class="spacer"></span>
-  <a mat-button class="gameSignUp">
+  <a mat-button class="gameSignUp"
+    (click)="signUp()">
     TILMELD INHOUSE
   </a>
   <span class="spacer"></span>
@@ -68,9 +69,6 @@
     <mat-card fxLayoutAlign="center center"
               class="cards"
               *ngFor="let user of users">
-      <mat-card-title>
-        <a>1</a>
-      </mat-card-title>
       <span fxFlex="2%"></span>
       <mat-card-content
         fxLayoutAlign="center center">
