@@ -14,14 +14,14 @@ export class TournamentService {
               private auth: AuthenticationService) { }
 
   getCurrent(): Observable<User[]> {
-    return this.http.get(environment.apiUrl + 'tournament/current');
+    return this.http.get<User[]>(environment.apiUrl + 'tournament/current');
   }
 
   getQueue(): Observable<User[]> {
-    return this.http.get(environment.apiUrl + 'tournament/queue');
+    return this.http.get<User[]>(environment.apiUrl + 'tournament/queue');
   }
 
-  signUp(): Observable {
-    return this.http.post(environment.apiUrl + 'tournament/queue', {jwt: this.auth.getToken()});
+  signUp(): Observable<any> {
+    return this.http.post<any>(environment.apiUrl + 'tournament/queue', {jwt: this.auth.getToken()});
   }
 }
