@@ -1,6 +1,6 @@
 import {User} from '../User';
 
-export class UserTournamentDTO {
+export class TournamentDTO {
   user: User;
   team: number;
 }

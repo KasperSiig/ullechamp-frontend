@@ -36,7 +36,7 @@
   <div fxLayout="column">
     <mat-card fxLayoutAlign="center center"
               class="cards"
-              *ngFor="let user of users">
+              *ngFor="let user of queueUsers">
       <mat-card-title>
         <a>1</a>
       </mat-card-title>
@@ -59,11 +59,11 @@
                         fxLayoutGap="5px"
                         fxFlexAlign="end">
         <a mat-button
-           (click)="assignUserToTeam($event, user.user.id)"
+           (click)="assignUserToTeam($event, user)"
            team="0"
            class="btnRedTeam">Rødt Team</a>
         <a mat-button
-           (click)="assignUserToTeam($event, user.user.id)"
+           (click)="assignUserToTeam($event, user)"
            team="1"
            class="btnBlueTeam">Blåt Team</a>
       </mat-card-actions>
