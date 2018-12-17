@@ -13,7 +13,7 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatMenuModule, MatSelectModule, MatInputModule, MatTableModule, MatExpansionModule
+  MatMenuModule, MatSelectModule, MatInputModule, MatTableModule, MatExpansionModule, MatRadioModule
 } from '@angular/material';
 import {MainNavComponent} from './shared/main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -29,6 +29,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import { TournamentComponent } from './tournament/tournament.component';
 import { AdminTournamentComponent } from './admin-tournament/admin-tournament.component';
+import { AdminLeaderboardComponent } from './admin-leaderboard/admin-leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminTournamentComponent } from './admin-tournament/admin-tournament.co
     LeaderboardComponent,
     MatchHistoryComponent,
     TournamentComponent,
-    AdminTournamentComponent
+    AdminTournamentComponent,
+    AdminLeaderboardComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { AdminTournamentComponent } from './admin-tournament/admin-tournament.co
     MatExpansionModule,
     ReactiveFormsModule,
     ScrollingModule,
-    SlideshowModule
+    SlideshowModule,
+    MatRadioModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

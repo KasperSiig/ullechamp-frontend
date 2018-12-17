@@ -1,0 +1,26 @@
+.spacer {
+  flex: 1 auto;
+}
+
+.tournament {
+  /*border-bottom: 1px solid grey;*/
+  padding-bottom: 10px;
+}
+
+.team {
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.team0 {
+  box-shadow: 2px 2px blue;
+}
+
+.team1 {
+  box-shadow: 2px 2px red;
+}
+
+.btnSubmit {
+  margin-top: 20px;
+}

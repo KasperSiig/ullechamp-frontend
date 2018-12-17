@@ -5,6 +5,7 @@ import {User} from '../models/User';
 import {environment} from '../../../environments/environment';
 import {AuthenticationService} from './authentication.service';
 import {TournamentDTO} from '../models/dtos/TournamentDTO';
+import {PendingTournamentDTO} from '../models/dtos/PendingTournamentDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class TournamentService {
 
   assignTeams(dto: TournamentDTO): Observable<any> {
     return this.http.post<any>(environment.apiUrl + 'tournament/current', {user: dto.user, team: dto.team});
+  }
+
+  getPending(): Observable<PendingTournamentDTO[]> {
+    return this.http.get<PendingTournamentDTO[]>(environment.apiUrl + 'tournament/pending');
+  }
+
+  getPendingById(id: number): Observable<PendingTournamentDTO> {
+    return this.http.get<PendingTournamentDTO>(environment.apiUrl + 'tournament/pending/' + id);
   }
 }

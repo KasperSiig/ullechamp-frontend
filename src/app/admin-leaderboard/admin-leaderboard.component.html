@@ -1,0 +1,69 @@
+<div class="container" fxLayoutAlign="center">
+  <div class="tournament"
+       fxFlex="80%"
+       fxLayout="column"
+       fxLayoutGap="10px">
+    <h1>Tournament ID: {{ pending.tournamentId }} </h1>
+    <form [formGroup]="tournamentForm" (ngSubmit)="onSave()" fxLayout="column" fxLayoutGap="10px">
+      <mat-radio-group class="example-radio-group">
+        <div fxLayout="row wrap">
+          <div fxLayout="column"
+               fxFlex="45%"
+               fxLayoutGap="10px"
+               fxFlex.lt-md="100%">
+            <input type="radio" formControlName="winner" value="blue">
+            <div
+              *ngFor="let user of filterUsersOfTeam(0)"
+              fxLayout="column"
+              class="team team0">
+              {{ user.user.twitchname }}
+              <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Kills" [formControlName]="user.user.twitchname + 'kills'">
+                </mat-form-field>
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Deaths" [formControlName]="user.user.twitchname + 'deaths'">
+                </mat-form-field>
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Assists"
+                         [formControlName]="user.user.twitchname + 'assists'">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <span class="spacer"></span>
+          <div fxLayout="column"
+               fxFlex="45%"
+               fxLayoutGap="10px"
+               fxFlex.lt-md="100%">
+            <input type="radio" formControlName="winner" value="red">
+            <div
+              *ngFor="let user of filterUsersOfTeam(1, pending)"
+              fxLayout="column"
+              class="team team1">
+              {{ user.user.twitchname }}
+              <div fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Kills" [formControlName]="user.user.twitchname + 'kills'">
+                </mat-form-field>
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Deaths" [formControlName]="user.user.twitchname + 'deaths'">
+                </mat-form-field>
+                <mat-form-field fxFlex="20%">
+                  <input matInput type="text" placeholder="Assists"
+                         [formControlName]="user.user.twitchname + 'assists'">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-radio-group>
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event)"
+        #fileInput>
+      <button mat-raised-button (click)="fileInput.click()" type="button">Vælg Match History Billede</button>
+      <button mat-raised-button type="submit" class="btnSubmit">Submit</button>
+    </form>
+  </div>
+</div>

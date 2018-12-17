@@ -13,6 +13,6 @@ export class AuthenticationService {
 
   getToken(): string {
     const jwt = JSON.parse(localStorage.getItem('jwt'));
-    return jwt.token;
+    return jwt ? jwt.token : undefined;
   }
 }
