@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../shared/models/User';
 import {LeaderboardService} from '../shared/services/leaderboard.service';
 import {TournamentService} from '../shared/services/tournament.service';
-import {UserTournamentDTO} from '../shared/models/dtos/UserTournamentDTO';
+import {TournamentDTO} from '../shared/models/dtos/TournamentDTO';
 
 @Component({
   selector: 'app-admin-tournament',
@@ -12,7 +12,7 @@ import {UserTournamentDTO} from '../shared/models/dtos/UserTournamentDTO';
 export class AdminTournamentComponent implements OnInit {
 
   queueUsers: User[];
-  currentUsers: UserTournamentDTO[];
+  currentUsers: TournamentDTO[];
 
   constructor(private tourmanentService: TournamentService) {
   }
@@ -36,7 +36,7 @@ export class AdminTournamentComponent implements OnInit {
 
   assignUserToTeam(event: MouseEvent, user: User) {
 
-    this.tourmanentService.assignTeams(<UserTournamentDTO>({
+    this.tourmanentService.assignTeams(<TournamentDTO>({
       user: user,
       team: +event.srcElement.getAttribute('team')
     })).subscribe();
