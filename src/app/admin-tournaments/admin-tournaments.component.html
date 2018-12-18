@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <div
+      *ngFor="let tournament of tournaments"
+      fxFlex="80%"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px">
+      <a routerLink="/admin-leaderboard/{{tournament.tournamentId}}"
+         fxFlex="80%">
+        <mat-card fxFlex="100%">
+          <mat-card-content>
+            {{ tournament.date | date }}
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+</div>

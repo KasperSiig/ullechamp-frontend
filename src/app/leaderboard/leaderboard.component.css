@@ -49,8 +49,10 @@
   left: 5px;
 }
 
-cdk-virtual-scroll-viewport {
+.scrollpane {
   height: 85vh;
+  overflow-y: scroll;
+  border-bottom: 1px solid black;
 }
 
 form  mat-card {

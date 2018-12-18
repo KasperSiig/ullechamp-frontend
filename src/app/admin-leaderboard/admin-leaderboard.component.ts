@@ -6,6 +6,7 @@ import {TournamentDTO} from '../shared/models/dtos/TournamentDTO';
 import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {GalleryService} from '../shared/services/gallery.service';
+import {UserDTO} from '../shared/models/dtos/UserDTO';
 
 @Component({
   selector: 'app-admin-leaderboard',
@@ -18,6 +19,8 @@ export class AdminLeaderboardComponent implements OnInit {
 
   pending: PendingTournamentDTO;
 
+  tournamentId: number;
+
   tournamentForm = new FormGroup({
     winner: new FormControl('')
   });
@@ -27,35 +30,11 @@ export class AdminLeaderboardComponent implements OnInit {
               private galleryService: GalleryService) { }
 
   ngOnInit() {
-    // this.tourmanentService.getPendingById(+this.route.snapshot.paramMap.get('id'))
-    //   .subscribe(pending => {
-    //     this.pending = pending;
-    //   });
-    const pending1 = new PendingTournamentDTO();
-    pending1.tournamentId = 1;
-
-    const userDTO1 = new TournamentDTO();
-    userDTO1.team = 0;
-    userDTO1.user = new User();
-    userDTO1.user.twitchname = 'Kasper1992';
-
-    const userDTO3 = new TournamentDTO();
-    userDTO3.team = 0;
-    userDTO3.user = new User();
-    userDTO3.user.twitchname = 'Jesper1992';
-
-    const userDTO2 = new TournamentDTO();
-    userDTO2.team = 1;
-    userDTO2.user = new User();
-    userDTO2.user.twitchname = 'Oliver1992';
-
-    const userDTO4 = new TournamentDTO();
-    userDTO4.team = 1;
-    userDTO4.user = new User();
-    userDTO4.user.twitchname = 'Tina1992';
-
-    pending1.users = [userDTO1, userDTO2, userDTO3, userDTO4];
-    this.pending = pending1;
+    this.tournamentId = +this.route.snapshot.paramMap.get('id');
+    this.tourmanentService.getPendingById(this.tournamentId)
+      .subscribe(pending => {
+        this.pending = pending;
+      });
 
     this.pending.users.forEach((user) => {
       this.tournamentForm.addControl(user.user.twitchname + 'kills', new FormControl(''));
@@ -69,14 +48,36 @@ export class AdminLeaderboardComponent implements OnInit {
     return users;
   }
 
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
   onSave() {
     this.galleryService.uploadPicture(this.selectedFile)
       .subscribe(() => {
       });
-  }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
+    const winnerTeam = +this.tournamentForm.get('winner').value;
+
+    const winners = this.filterUsersOfTeam(winnerTeam);
+    const losers = this.filterUsersOfTeam(+!winnerTeam);
+
+    this.pending.users.forEach(userDTO => {
+      const user = userDTO.user;
+      user.kills = this.tournamentForm.get(user.twitchname + 'kills').value;
+      user.deaths = this.tournamentForm.get(user.twitchname + 'deaths').value;
+      user.assists = this.tournamentForm.get(user.twitchname + 'assists').value;
+    });
+
+    const winnersDTO = new UserDTO();
+    winnersDTO.users.push(...winners.map(dto => dto.user));
+    winnersDTO.tournamentId = this.tournamentId;
+
+    const losersDTO = new UserDTO();
+    losersDTO.users.push(...losers.map(dto => dto.user));
+    losersDTO.tournamentId = this.tournamentId;
+    this.tourmanentService.putWinners(winnersDTO).subscribe();
+    this.tourmanentService.putLosers(losersDTO).subscribe();
   }
 
 }

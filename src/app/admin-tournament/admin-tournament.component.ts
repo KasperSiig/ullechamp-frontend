@@ -31,14 +31,20 @@ export class AdminTournamentComponent implements OnInit {
   }
 
   filterUsersOfTeam(team: number) {
+    if (!this.currentUsers) { return []; }
     return this.currentUsers.filter(u => u.team === team);
   }
 
-  assignUserToTeam(event: MouseEvent, user: User) {
+  assignUserToTeam(team: number, user: User) {
 
     this.tourmanentService.assignTeams(<TournamentDTO>({
       user: user,
-      team: +event.srcElement.getAttribute('team')
+      team: team
     })).subscribe();
+    location.reload();
+  }
+
+  onEndMatch() {
+    this.tourmanentService.endGame().subscribe();
   }
 }

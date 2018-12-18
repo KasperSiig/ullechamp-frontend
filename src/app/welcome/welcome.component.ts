@@ -20,6 +20,7 @@ export class WelcomeComponent implements OnInit {
       this.authService.saveToken(token);
     }
     this.router.navigate(['/']);
+    console.log(this.authService.isLoggedIn());
   }
 
 }

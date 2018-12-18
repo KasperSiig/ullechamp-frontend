@@ -3,7 +3,10 @@
      class="container">
   <br>
 </div>
-
+<button
+  mat-raised-button
+  (click)="onEndMatch()"
+  class="endBtn">Afslut Kamp</button>
 <div fxLayout="row"
      fxLayoutAlign="center">
   <div fxLayout="column">
@@ -34,6 +37,7 @@
 
   <span fxFlex="10%"></span>
   <div fxLayout="column">
+
     <mat-card fxLayoutAlign="center center"
               class="cards"
               *ngFor="let user of queueUsers">
@@ -59,12 +63,10 @@
                         fxLayoutGap="5px"
                         fxFlexAlign="end">
         <a mat-button
-           (click)="assignUserToTeam($event, user)"
-           team="0"
+           (click)="assignUserToTeam(0, user)"
            class="btnRedTeam">Rødt Team</a>
         <a mat-button
-           (click)="assignUserToTeam($event, user)"
-           team="1"
+           (click)="assignUserToTeam(1, user)"
            class="btnBlueTeam">Blåt Team</a>
       </mat-card-actions>
     </mat-card>

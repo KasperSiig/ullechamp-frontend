@@ -30,6 +30,7 @@ import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import { TournamentComponent } from './tournament/tournament.component';
 import { AdminTournamentComponent } from './admin-tournament/admin-tournament.component';
 import { AdminLeaderboardComponent } from './admin-leaderboard/admin-leaderboard.component';
+import { AdminTournamentsComponent } from './admin-tournaments/admin-tournaments.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminLeaderboardComponent } from './admin-leaderboard/admin-leaderboard
     MatchHistoryComponent,
     TournamentComponent,
     AdminTournamentComponent,
-    AdminLeaderboardComponent
+    AdminLeaderboardComponent,
+    AdminTournamentsComponent
   ],
   imports: [
     BrowserModule,

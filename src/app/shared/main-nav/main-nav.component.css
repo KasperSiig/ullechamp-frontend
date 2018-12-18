@@ -82,3 +82,10 @@
 .chevron_right {
   font-size: 25px;
 }
+
+.loggedIn {
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}

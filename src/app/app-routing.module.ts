@@ -7,8 +7,9 @@ import {TrophyRoomComponent} from './trophy-room/trophy-room.component';
 import {LeaderboardComponent} from './leaderboard/leaderboard.component';
 import {MatchHistoryComponent} from './match-history/match-history.component';
 import {TournamentComponent} from './tournament/tournament.component';
-import {AdminTournamentComponent} from './admin-tournament/admin-tournament.component';
 import {AdminLeaderboardComponent} from './admin-leaderboard/admin-leaderboard.component';
+import {AdminTournamentsComponent} from './admin-tournaments/admin-tournaments.component';
+import {AdminTournamentComponent} from './admin-tournament/admin-tournament.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'match-history', component: MatchHistoryComponent},
   {path: 'tournament', component: TournamentComponent},
   {path: 'admin-tournament', component: AdminTournamentComponent},
-  {path: 'admin-leaderboard/:id', component: AdminLeaderboardComponent}
+  {path: 'admin-leaderboard/:id', component: AdminLeaderboardComponent},
+  {path: 'admin-tournaments', component: AdminTournamentsComponent}
 ];
 
 @NgModule({

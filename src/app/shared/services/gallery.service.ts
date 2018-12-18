@@ -12,8 +12,7 @@ export class GalleryService {
 
   uploadPicture(file: File): Observable<any> {
     const uploadData = new FormData();
-    const headers = new HttpHeaders().append('Content-Type', 'application/json');
     uploadData.append('file', file, file.name);
-    return this.http.post<any>(environment.apiUrl + 'gallery', file, {headers: headers});
+    return this.http.post<any>(environment.apiUrl + 'gallery', uploadData);
   }
 }

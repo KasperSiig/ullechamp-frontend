@@ -11,7 +11,7 @@
                fxFlex="45%"
                fxLayoutGap="10px"
                fxFlex.lt-md="100%">
-            <input type="radio" formControlName="winner" value="blue">
+            <input type="radio" formControlName="winner" value="0">
             <div
               *ngFor="let user of filterUsersOfTeam(0)"
               fxLayout="column"
@@ -36,7 +36,7 @@
                fxFlex="45%"
                fxLayoutGap="10px"
                fxFlex.lt-md="100%">
-            <input type="radio" formControlName="winner" value="red">
+            <input type="radio" formControlName="winner" value="1">
             <div
               *ngFor="let user of filterUsersOfTeam(1, pending)"
               fxLayout="column"

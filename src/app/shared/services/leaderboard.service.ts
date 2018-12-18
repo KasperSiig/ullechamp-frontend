@@ -14,16 +14,16 @@ export class LeaderboardService {
               private auth: AuthenticationService) {
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(environment.apiUrl + 'leaderboard/');
+  getUsers(curPage: number, itemsPrPage: number): Observable<User[]> {
+    return this.http.get<User[]>(environment.apiUrl + 'leaderboard/?currentpage=' + curPage + '&itemsprpage=' + itemsPrPage);
   }
 
-  search(search: string, curPage: string, itemsPrPage: string): Observable<User[]> {
+  search(search: string, curPage: number, itemsPrPage: number): Observable<User[]> {
     return this.http.get<User[]>(environment.apiUrl + 'leaderboard/search?search='
       + search + '&currentpage=' + curPage + '&itemsprpage=' + itemsPrPage);
   }
 
-  sort(curPage: string, itemsPrPage: string, sorting: string): Observable<User[]> {
+  sort(curPage: number, itemsPrPage: number, sorting: string): Observable<User[]> {
     return this.http.get<User[]>(environment.apiUrl + 'leaderboard/stats?curPage=' + curPage
       + '&itemsPrPage=' + itemsPrPage + '&sorting=' + sorting);
   }

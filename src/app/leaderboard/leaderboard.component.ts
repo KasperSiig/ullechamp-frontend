@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {User} from '../shared/models/User';
 import {LeaderboardService} from '../shared/services/leaderboard.service';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -11,7 +11,11 @@ import {Observable} from 'rxjs';
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.css']
 })
-export class LeaderboardComponent implements OnInit {
+export class LeaderboardComponent implements OnInit, AfterViewInit {
+
+  currentPage = 1;
+  itemsPrPage: number;
+  @ViewChild('scrollpane') scrollpane: ElementRef;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -44,23 +48,39 @@ export class LeaderboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.leaderboardService.getUsers()
+  }
+
+  ngAfterViewInit() {
+    const scrollpane = this.scrollpane.nativeElement as HTMLElement;
+    this.itemsPrPage = Math.ceil(scrollpane.scrollHeight / 48);
+    this.leaderboardService.getUsers(this.currentPage++, this.itemsPrPage)
       .subscribe(users => {
         this.users = users;
       });
   }
 
   onSearch() {
-    this.leaderboardService.search(this.searchForm.get('search').value, '1', '10')
+    this.currentPage = 1;
+    this.leaderboardService.search(this.searchForm.get('search').value, this.currentPage++, this.itemsPrPage)
       .subscribe(users => {
         this.users = users;
       });
   }
 
   onSort() {
-    this.leaderboardService.sort('1', '10', this.options[this.selected])
+    this.currentPage = 1;
+    this.leaderboardService.sort(this.currentPage++, this.itemsPrPage, this.options[this.selected])
       .subscribe(users => {
         this.users = users;
+      });
+  }
+
+  onScroll(event: HTMLElement) {
+    const atBottom = event.scrollHeight - event.scrollTop === event.clientHeight;
+    if (!atBottom) { return; }
+    this.leaderboardService.getUsers(this.currentPage++, this.itemsPrPage)
+      .subscribe(users => {
+        this.users.push(...users);
       });
   }
 
