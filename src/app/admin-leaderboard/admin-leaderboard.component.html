@@ -38,7 +38,7 @@
                fxFlex.lt-md="100%">
             <input type="radio" formControlName="winner" value="1">
             <div
-              *ngFor="let user of filterUsersOfTeam(1, pending)"
+              *ngFor="let user of filterUsersOfTeam(1)"
               fxLayout="column"
               class="team team1">
               {{ user.user.twitchname }}

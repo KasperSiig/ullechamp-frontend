@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {User} from '../shared/models/User';
 import {LeaderboardService} from '../shared/services/leaderboard.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {map, window} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 
@@ -21,8 +21,6 @@ export class LeaderboardComponent implements OnInit, AfterViewInit {
     .pipe(
       map(result => result.matches)
     );
-
-  windowHeight: number;
 
   selected = 0;
 
@@ -61,7 +59,9 @@ export class LeaderboardComponent implements OnInit, AfterViewInit {
 
   onSearch() {
     this.currentPage = 1;
-    this.leaderboardService.search(this.searchForm.get('search').value, this.currentPage++, this.itemsPrPage)
+    this.leaderboardService
+      .search(this.searchForm.get('search').value,
+        this.currentPage++, this.itemsPrPage)
       .subscribe(users => {
         this.users = users;
       });

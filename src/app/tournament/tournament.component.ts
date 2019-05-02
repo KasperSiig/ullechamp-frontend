@@ -1,28 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from '../shared/models/User';
-import {LeaderboardService} from '../shared/services/leaderboard.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TournamentService} from '../shared/services/tournament.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthenticationService} from '../shared/services/authentication.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-tournament',
   templateUrl: './tournament.component.html',
   styleUrls: ['./tournament.component.css']
 })
-export class TournamentComponent implements OnInit {
+export class TournamentComponent implements OnInit, OnDestroy {
 
-  users: User[];
+  role: string;
+
+  subscription: Subscription;
 
   constructor(private tournamentService: TournamentService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+              private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.tournamentService.getQueue()
-      .subscribe(users => {
-        this.users = users;
-        this.users.reverse();
+    this.subscription = this.authService.getRole()
+      .subscribe(role => {
+        this.role = role;
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   signUp() {
@@ -30,6 +34,20 @@ export class TournamentComponent implements OnInit {
       .subscribe(() => {
         location.reload(true);
       });
+  }
+
+  onSave() {
+    this.tournamentService.assignTeams()
+      .subscribe();
+  }
+
+  isAdmin() {
+    return this.role === 'Admin';
+  }
+
+  onEndMatch() {
+    this.tournamentService.endMatch()
+      .subscribe();
   }
 
 }

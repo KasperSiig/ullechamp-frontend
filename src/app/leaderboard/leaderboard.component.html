@@ -46,63 +46,6 @@
       fxLayout="column"
       fxLayoutGap="10px">
       <mat-accordion class="example-headers-align">
-        <!--
-        <cdk-virtual-scroll-viewport itemSize="10">
-          <mat-expansion-panel [expanded]="1 === 0" *cdkVirtualFor="let user of users">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                #{{ user.rank }}
-              </mat-panel-title>
-              <mat-panel-description>
-                {{ user.twitchname}}
-              </mat-panel-description>
-              <mat-panel-description>
-                KDA {{ user.kda }}
-              </mat-panel-description>
-              <mat-panel-description>
-                {{ user.winLoss }}% W/L
-              </mat-panel-description>
-              <mat-panel-description>
-                {{ user.point }}P
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-panel-description class="panelContent">
-              <p fxLayout="column"
-                 fxLayoutAlign="center center">
-                <img fxLayout="column"
-                     fxLayoutAlign="center center"
-                     class="imgUserPic"
-                     src="{{ user.imageUrl }}"
-                     alt="UserPic">
-                Bwbz MissTizz
-              </p>
-              <p fxLayout="column"
-                 fxLayoutAlign="center center">
-                <img class="imgUserRank"
-                     src="assets/imgs/rank1.png"
-                     alt="UserRank">
-                Challenger
-                <br>
-                Ranked Solo</p>
-
-              <p>Wins: {{ user.wins }}
-                <br>
-                <br>
-                Loss: {{ user.losses }}</p>
-              <p>Kills: {{ user.kills }}
-                <br>
-                <br>
-                Deaths: {{ user.deaths }}</p>
-              <p>Assists: {{ user.assists }}
-                <br>
-                <br>
-                <br></p>
-              <p></p>
-              <p></p>
-            </mat-panel-description>
-          </mat-expansion-panel>
-        </cdk-virtual-scroll-viewport>
-        -->
         <div class="scrollpane" (scroll)="onScroll(scrollpane)" #scrollpane>
           <mat-expansion-panel
             [expanded]="1 === 0"
@@ -132,16 +75,9 @@
                      class="imgUserPic"
                      src="{{ user.imageUrl }}"
                      alt="UserPic">
-                Bwbz MissTizz
+
               </p>
-              <p fxLayout="column"
-                 fxLayoutAlign="center center">
-                <img class="imgUserRank"
-                     src="assets/imgs/rank1.png"
-                     alt="UserRank">
-                Challenger
-                <br>
-                Ranked Solo</p>
+
 
               <p>Wins: {{ user.wins }}
                 <br>

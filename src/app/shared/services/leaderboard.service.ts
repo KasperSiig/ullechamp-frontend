@@ -10,12 +10,12 @@ import {AuthenticationService} from './authentication.service';
 })
 export class LeaderboardService {
 
-  constructor(private http: HttpClient,
-              private auth: AuthenticationService) {
+  constructor(private http: HttpClient) {
   }
 
   getUsers(curPage: number, itemsPrPage: number): Observable<User[]> {
-    return this.http.get<User[]>(environment.apiUrl + 'leaderboard/?currentpage=' + curPage + '&itemsprpage=' + itemsPrPage);
+    return this.http.get<User[]>(environment.apiUrl + 'leaderboard/?currentpage='
+      + curPage + '&itemsprpage=' + itemsPrPage);
   }
 
   search(search: string, curPage: number, itemsPrPage: number): Observable<User[]> {

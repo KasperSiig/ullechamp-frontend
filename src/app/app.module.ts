@@ -28,9 +28,10 @@ import {MatchHistoryComponent} from './match-history/match-history.component';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {AuthInterceptor} from './shared/interceptors/auth.interceptor';
 import { TournamentComponent } from './tournament/tournament.component';
-import { AdminTournamentComponent } from './admin-tournament/admin-tournament.component';
 import { AdminLeaderboardComponent } from './admin-leaderboard/admin-leaderboard.component';
 import { AdminTournamentsComponent } from './admin-tournaments/admin-tournaments.component';
+import { TeamsComponent } from './teams/teams.component';
+import { QueueComponent } from './queue/queue.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +44,10 @@ import { AdminTournamentsComponent } from './admin-tournaments/admin-tournaments
     LeaderboardComponent,
     MatchHistoryComponent,
     TournamentComponent,
-    AdminTournamentComponent,
     AdminLeaderboardComponent,
-    AdminTournamentsComponent
+    AdminTournamentsComponent,
+    TeamsComponent,
+    QueueComponent
   ],
   imports: [
     BrowserModule,

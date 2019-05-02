@@ -14,9 +14,9 @@
     <mat-nav-list>
       <hr>
       <a *ngIf="!isLoggedIn"
-        href="https://id.twitch.tv/oauth2/authorize?client_id=qgnb4ep6s4mb0dxt167a0q3xfvsxwc&redirect_uri=https://localhost:5001/token&response_type=code&scope="
-        mat-list-item
-        class="loginBtn">
+         href="https://id.twitch.tv/oauth2/authorize?client_id=qgnb4ep6s4mb0dxt167a0q3xfvsxwc&redirect_uri=https://ullechamp.azurewebsites.net/token&response_type=code&scope="
+         mat-list-item
+         class="loginBtn">
         <img
           fxLayoutAlign="center center"
           class="twitchLogo"
@@ -27,7 +27,7 @@
       <span
         class="loggedIn"
         fxLayoutAlign="center center"
-        *ngIf="isLoggedIn">Velkommen {{ username }}</span>
+        *ngIf="isLoggedIn">Velkommen {{ twitchname }}</span>
       <hr>
       <a mat-list-item routerLink="/" class="navBtn">Hjem</a>
       <a mat-list-item class="navBtn" (click)="toggleInHouse()">InHouse
@@ -43,33 +43,18 @@
         <a
           mat-list-item
           class="navBtn dropdown"
-          routerLink="/trophy-room">
-          <mat-icon class="chevron_right">chevron_right</mat-icon>Pokal Liste</a>
-        <a
-          mat-list-item
-          class="navBtn dropdown"
           routerLink="/leaderboard">
           <mat-icon class="chevron_right">chevron_right</mat-icon>Rang Liste</a>
-        <a
-          mat-list-item
-          class="navBtn dropdown"
-          routerLink="/match-history">
-          <mat-icon class="chevron_right">chevron_right</mat-icon>Match History</a>
       </span>
 
       <a mat-list-item routerLink="/calender" class="navBtn">Kalender</a>
       <a mat-list-item class="navBtn" routerLink="/tournament">Tilmelding</a>
 
-      <a mat-list-item class="navBtn" (click)="toggleAdmin()">Admin
+      <a mat-list-item class="navBtn" (click)="toggleAdmin()" *ngIf="role === 'Admin'">Admin
         <span class="spacer"></span>
         <mat-icon>expand_more</mat-icon>
       </a>
       <span *ngIf="adminActive">
-        <a
-          mat-list-item
-          class="navBtn dropdown"
-          routerLink="/admin-tournament">
-          <mat-icon class="chevron_right">chevron_right</mat-icon>Start Tournament</a>
         <a
           mat-list-item
           class="navBtn dropdown"

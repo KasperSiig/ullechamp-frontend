@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutGap="50px">
+  <div fxLayout="column">
+    <div>
+      <br>
+      <a>Team Rød</a>
+      <mat-card class="nowPlaying"
+                fxFlexFill="80">
+        <mat-card-content *ngFor="let user of filterUsersOfTeam(0)">
+          <a>{{ user.user.twitchname }}</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div fxLayout="column">
+    <div>
+      <br>
+      <a>Team Blå</a>
+      <mat-card class="nowPlaying"
+                fxFlexFill="80">
+        <mat-card-content *ngFor="let user of filterUsersOfTeam(1)">
+          <a>{{ user.user.twitchname }}</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

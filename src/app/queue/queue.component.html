@@ -1,0 +1,35 @@
+<mat-card fxLayoutAlign="center center"
+          class="cards"
+          *ngFor="let user of queue">
+  <mat-card-title>
+    <a></a>
+  </mat-card-title>
+  <span fxFlex="2%"></span>
+  <mat-card-content
+    fxLayoutAlign="center center">
+    <img fxLayout="column"
+         fxLayoutAlign="center center"
+         class="imgUserPic"
+         src="{{ user.imageUrl }}"
+         alt="UserPic">
+  </mat-card-content>
+  <span class="spacer"></span>
+  <mat-card-content fxFlex="1">
+    {{user.twitchname}}
+  </mat-card-content>
+  <span class="spacer"></span>
+  <div></div>
+  <mat-card-actions fxLayout="row"
+                    fxLayoutGap="5px"
+                    fxFlexAlign="end"
+                    class="queue-cards">
+    <a mat-button
+       (click)="assignUserToTeam(0, user)"
+       class="btnRedTeam"
+       *ngIf="isAdmin()">Rødt Team</a>
+    <a mat-button
+       (click)="assignUserToTeam(1, user)"
+       class="btnBlueTeam"
+       *ngIf="isAdmin()">Blåt Team</a>
+  </mat-card-actions>
+</mat-card>

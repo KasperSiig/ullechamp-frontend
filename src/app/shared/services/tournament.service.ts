@@ -1,35 +1,51 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {User} from '../models/User';
 import {environment} from '../../../environments/environment';
 import {AuthenticationService} from './authentication.service';
 import {TournamentDTO} from '../models/dtos/TournamentDTO';
 import {PendingTournamentDTO} from '../models/dtos/PendingTournamentDTO';
-import {UserDTO} from '../models/dtos/UserDTO';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TournamentService {
 
-  constructor(private http: HttpClient,
-              private auth: AuthenticationService) { }
+  current = new BehaviorSubject<TournamentDTO[]>([]);
+  queue = new BehaviorSubject<User[]>([]);
 
-  getCurrent(): Observable<TournamentDTO[]> {
-    return this.http.get<TournamentDTO[]>(environment.apiUrl + 'tournament/current');
+  constructor(private http: HttpClient,
+              private auth: AuthenticationService) {
   }
 
-  getQueue(): Observable<User[]> {
-    return this.http.get<User[]>(environment.apiUrl + 'tournament/queue');
+  fetchCurrent() {
+    this.http.get<TournamentDTO[]>(environment.apiUrl + 'tournament/current')
+      .subscribe(tournaments => {
+        this.current.next(tournaments);
+      });
+  }
+
+  assignToTeam(user: TournamentDTO) {
+    this.current.next([...this.current.getValue(), user]);
+    this.removeFromQueue(user.user);
+  }
+
+  fetchQueue() {
+    this.http.get<User[]>(environment.apiUrl + 'tournament/queue')
+      .subscribe(users => {
+        this.queue.next(users);
+      });
   }
 
   signUp(): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'tournament/queue', {jwt: this.auth.getToken()});
+    return this.http
+      .post<any>(environment.apiUrl + 'tournament/queue',
+        {jwt: this.auth.getToken()});
   }
 
-  assignTeams(dto: TournamentDTO): Observable<any> {
-    return this.http.post<any>(environment.apiUrl + 'tournament/current', {user: dto.user, team: dto.team});
+  assignTeams(): Observable<any> {
+    return this.http.put<any>(environment.apiUrl + 'tournament/current', this.current.value);
   }
 
   getPending(): Observable<PendingTournamentDTO[]> {
@@ -40,15 +56,18 @@ export class TournamentService {
     return this.http.get<PendingTournamentDTO>(environment.apiUrl + 'tournament/pending/' + id);
   }
 
-  putWinners(winners: UserDTO): Observable<any> {
-    return this.http.put<any>(environment.apiUrl + 'tournament/winners', winners);
+  endTournament(users: TournamentDTO[], team: number): Observable<any> {
+    console.log(users);
+    return this.http.put<any>(environment.apiUrl + 'tournament/end?team=' + team, users);
   }
 
-  putLosers(losers: UserDTO): Observable<any> {
-    return this.http.put<any>(environment.apiUrl + 'tournament/losers', losers);
-  }
-
-  endGame(): Observable<any> {
+  endMatch(): Observable<any> {
     return this.http.put<any>(environment.apiUrl + 'tournament/endgame', {});
+  }
+
+  private removeFromQueue(user: User) {
+    const index = this.queue.value.indexOf(user);
+    this.queue.value.splice(index, 1);
+    this.queue.next(this.queue.value);
   }
 }

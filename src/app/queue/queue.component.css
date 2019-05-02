@@ -1,35 +1,3 @@
-.cards {
-  position: relative;
-  height: fit-content;
-  width: content-box;
-  top: 20px;
-}
-
-.imgUserRank {
-  width: 50px;
-  height: 50px;
-}
-
-.imgUserPic {
-  width: 40px;
-  height: 40px;
-  border-radius: 1000px;
-}
-
-.nowPlaying .mat-card-content {
-  width: 150px;
-  height: 30px;
-}
-
-.spacer {
-  flex: 1 auto;
-}
-
-.container {
-  position: relative;
-  top: 20px;
-}
-
 .btnBlueTeam {
   width: 100px;
   height: 35px;
@@ -54,6 +22,16 @@
   font-family: 'Raleway', sans-serif;
 }
 
-.endBtn {
-  margin-left: 20px;
+.spacer {
+  flex: 1 auto;
+}
+
+.imgUserPic {
+  width: 40px;
+  height: 40px;
+  border-radius: 1000px;
+}
+
+.queue-cards {
+  width: 35vw;
 }

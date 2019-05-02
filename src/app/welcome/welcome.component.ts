@@ -18,9 +18,8 @@ export class WelcomeComponent implements OnInit {
     const token = paramMap.get('token');
     if (token) {
       this.authService.saveToken(token);
+      this.router.navigate(['/']);
     }
-    this.router.navigate(['/']);
-    console.log(this.authService.isLoggedIn());
   }
 
 }
